@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include "dominion_refactored.h"
 
 int compare(const void* a, const void* b) {
   if (*(int*)a > *(int*)b)
@@ -642,11 +643,11 @@ int getCost(int cardNumber)
 	
   return -1;
 }
-int smithy_call(int handPos, int currentPlayer, struct gameState *state);
-int adventurer_call(int handPos, int currentPlayer, struct gameState *state, int *drawntreasure, int *cardDrawn, int *z);
-int council_room_call(int handPos, int currentPlayer, struct gameState *state);
-int cutpurse_call(int handPos,int currentPlayer, struct gameState *state);
-int village_call(int handPos, int currentPlayer, struct gameState *state);
+//int smithy_call(int handPos, int currentPlayer, struct gameState *state);
+//int adventurer_call(int handPos, int currentPlayer, struct gameState *state, int *drawntreasure, int *cardDrawn, int *z);
+//int council_room_call(int handPos, int currentPlayer, struct gameState *state);
+//int cutpurse_call(int handPos,int currentPlayer, struct gameState *state);
+//int village_call(int handPos, int currentPlayer, struct gameState *state);
 
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
