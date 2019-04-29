@@ -33,9 +33,9 @@ int main(){
     r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
     asserttrue(r==0);
 
-    printGameState(G);
+    //printGameState(G);
 
-	printf("unittest1 result\n")
+	printf("unittest1 result\n");
 
 	return 0;
 }
