@@ -35,9 +35,9 @@ int main(){
 
     printGameState(&G);
 
-    s = smithy_call(handPos, currentPlayer, &G)
+    s = smithy_call(handPos, currentPlayer, &G);
     assert(s==0);
-    
+
 	printf("unittest1 result\n");
 
 	return 0;
