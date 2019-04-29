@@ -15,15 +15,18 @@
 #include <stdio.h>
 #include <assert.h>
 #include "rngs.h"
+#include "dominion_refactored.h"
 
 // set NOISY_TEST to 0 to remove printfs from output
-#define NOISY_TEST 1
+//#define NOISY_TEST 1
+
+//#define assertrue(bool)
 
 int main(){
 
-#if (NOISY_TEST == 1)
+//#if (NOISY_TEST == 1)
     //printf("G.coins = %d, expected = %d\n", G.coins, handCount * 1 + bonus);
-#endif 
+//#endif 
 
 	printf("unittest1 result\n")
 
