@@ -26,14 +26,18 @@ int main(){
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
     struct gameState G;
-    int r;
+    int r, s;
+   	int handPos = 0, currentPlayer = 0;
 
     memset(&G, 23, sizeof(struct gameState));   // clear the game state
     r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
     assert(r==0);
 
-    //printGameState(G);
+    printGameState(&G);
 
+    s = smithy_call(handPos, currentPlayer, &G)
+    assert(s==0);
+    
 	printf("unittest1 result\n");
 
 	return 0;
