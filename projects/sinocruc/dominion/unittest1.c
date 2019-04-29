@@ -33,7 +33,7 @@ int main(){
     r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
     assert(r==0);
 
-    printGameState(&G);
+    printState(&G);
 
     s = smithy_call(handPos, currentPlayer, &G);
     assert(s==0);
