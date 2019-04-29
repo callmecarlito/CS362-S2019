@@ -18,7 +18,6 @@
 #include "dominion_refactored.h"
 #include "interface.h"
 
-#define assertrue(bool) if(bool) printf("TEST SUCCESSFULLY COMPLETED.\n"); else printf("TEST FAILED: '");
 
 int main(){
 
@@ -31,7 +30,7 @@ int main(){
 
     memset(&G, 23, sizeof(struct gameState));   // clear the game state
     r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
-    asserttrue(r==0);
+    assert(r==0);
 
     //printGameState(G);
 
@@ -43,7 +42,7 @@ int main(){
 // set NOISY_TEST to 0 to remove printfs from output
 //#define NOISY_TEST 1
 
-//#define assertrue(bool)
+//#define assertrue(bool) if(bool) printf("TEST SUCCESSFULLY COMPLETED.\n"); else printf("TEST FAILED: '");
 
 
 //#if (NOISY_TEST == 1)
