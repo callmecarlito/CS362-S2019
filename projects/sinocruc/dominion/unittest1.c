@@ -24,18 +24,18 @@ int main(){
     int numPlayer = 2;
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
-    struct gameState G;
+    struct gameState G, cpyG;
     int r, s;
    	int handPos = 0, currentPlayer = 0;
 
     memset(&G, 23, sizeof(struct gameState));   // clear the game state
     r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
     assert(r==0);
-
-    //printState(&G);
+    memcpy(&testG, &G, sizeof(struct gameState));
 
     s = smithy_call(handPos, currentPlayer, &G);
     assert(s==0);
+    assert(G.handCount[currentPlayer] == testG.handCount[currentPlayer] + 4);
 
 	printf("unittest1 result\n");
 
