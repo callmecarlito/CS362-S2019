@@ -26,7 +26,7 @@ int main(){
                , remodel, smithy, village, baron, great_hall};
     struct gameState G, testG;
     int r, s;
-    int drawnCards = 4, discardedCards = 1
+    int drawnCards = 4, discardedCards = 1;
    	int handPos = 0, currentPlayer = 0;
 
     memset(&G, 23, sizeof(struct gameState));   // clear the game state
@@ -37,7 +37,7 @@ int main(){
 
     s = smithy_call(handPos, currentPlayer, &G);
     assert(s==0);
-    assert(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards + discardedCards);
+    assert(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards + discardedCards));
     //printf("AFTER: G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
 
 	printf("UNITTEST1 PASSED\n");
