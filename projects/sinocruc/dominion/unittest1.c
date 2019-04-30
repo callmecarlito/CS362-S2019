@@ -16,9 +16,7 @@
 #include <assert.h>
 #include "rngs.h"
 #include "dominion_refactored.h"
-
-#define MAX_STRING_LENGTH 32
-void printState(struct gameState *game);
+#include "interface.h"
 
 int main(){
 
@@ -34,7 +32,7 @@ int main(){
     r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
     assert(r==0);
 
-    printState(&G);
+    //printState(&G);
 
     s = smithy_call(handPos, currentPlayer, &G);
     assert(s==0);
@@ -42,16 +40,6 @@ int main(){
 	printf("unittest1 result\n");
 
 	return 0;
-}
-void printState(struct gameState *game) {
-  int numActions = game->numActions;
-  int numCoins = game->coins;
-  int numBuys = game->numBuys;
-  int currentPlayer = game->whoseTurn;
-  int phase = game->phase;
-  char phaseName[MAX_STRING_LENGTH];
-  phaseNumToName(phase,phaseName);
-  printf("Player %d:\n%s phase\n%d actions\n%d coins\n%d buys\n\n", currentPlayer, phaseName, numActions, numCoins, numBuys);
 }
 
 // set NOISY_TEST to 0 to remove printfs from output
