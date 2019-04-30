@@ -26,20 +26,21 @@ int main(){
                , remodel, smithy, village, baron, great_hall};
     struct gameState G, testG;
     int r, s;
+    int drawnCards = 4, discardedCards = 1
    	int handPos = 0, currentPlayer = 0;
 
     memset(&G, 23, sizeof(struct gameState));   // clear the game state
     r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
     assert(r==0);
     memcpy(&testG, &G, sizeof(struct gameState));
-    printf("BEFORE: G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
+    //printf("BEFORE: G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
 
     s = smithy_call(handPos, currentPlayer, &G);
     assert(s==0);
-    //assert(G.handCount[currentPlayer] == testG.handCount[currentPlayer] + 4);
-    printf("AFTER: G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
+    assert(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards + discardedCards);
+    //printf("AFTER: G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
 
-	printf("unittest1 result\n");
+	printf("UNITTEST1 PASSED\n");
 
 	return 0;
 }
