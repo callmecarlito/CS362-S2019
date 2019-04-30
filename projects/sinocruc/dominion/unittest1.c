@@ -24,7 +24,7 @@ int main(){
     int numPlayer = 2;
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
-    struct gameState G, cpyG;
+    struct gameState G, testG;
     int r, s;
    	int handPos = 0, currentPlayer = 0;
 
