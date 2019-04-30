@@ -37,7 +37,7 @@ int main(){
 
     s = smithy_call(handPos, currentPlayer, &G);
     assert(s==0);
-    assert(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards + discardedCards));
+    assert(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards));
     //printf("AFTER: G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
 
 	printf("UNITTEST1 PASSED\n");
