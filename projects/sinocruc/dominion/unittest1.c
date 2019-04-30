@@ -16,8 +16,9 @@
 #include <assert.h>
 #include "rngs.h"
 #include "dominion_refactored.h"
-#include "interface.h"
 
+#define MAX_STRING_LENGTH 32
+void printState(struct gameState *game);
 
 int main(){
 
@@ -41,6 +42,16 @@ int main(){
 	printf("unittest1 result\n");
 
 	return 0;
+}
+void printState(struct gameState *game) {
+  int numActions = game->numActions;
+  int numCoins = game->coins;
+  int numBuys = game->numBuys;
+  int currentPlayer = game->whoseTurn;
+  int phase = game->phase;
+  char phaseName[MAX_STRING_LENGTH];
+  phaseNumToName(phase,phaseName);
+  printf("Player %d:\n%s phase\n%d actions\n%d coins\n%d buys\n\n", currentPlayer, phaseName, numActions, numCoins, numBuys);
 }
 
 // set NOISY_TEST to 0 to remove printfs from output
