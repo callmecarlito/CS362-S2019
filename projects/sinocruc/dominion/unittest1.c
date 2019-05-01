@@ -24,8 +24,6 @@
 // set NOISY_TEST to 0 to remove printfs from output
 #define NOISY_TEST 1
 
-#define assertrue(bool) if(bool) printf("TEST SUCCESSFULLY COMPLETED.\n"); else printf("TEST FAILED:` " #bool " ` on line %d.\n", __LINE__);
-
 int main(){
 
 	int seed = 1000;
@@ -53,11 +51,14 @@ int main(){
     printf("After function call:\n G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
 #endif
   
-asserttrue(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards));
-
-
+    //assert(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards));
+    if (G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards))
+        printf("TEST SUCCESSFULL.");
+    else
+        printf("TEST FAILED.");
 	printf("Unit Test 1 complete...\n");
 
 	return 0;
 }
+//#define assertrue(bool) if(bool) printf("TEST SUCCESSFULLY COMPLETED.\n"); else printf("TEST FAILED:' " #bool " ' on line %d.\n", __LINE__);
 
