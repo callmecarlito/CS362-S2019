@@ -1,8 +1,10 @@
 /* -----------------------------------------------------------------------
  * This is a unit test for function call of smithy_call() within cardEffect()
- * of th dominion.c soure file. When thi function is called, subroutine 
+ * of the dominion.c soure file. When this function is called, subroutine 
  * drawCard() should be called three times, followed by discardCard(), and if
  * no error occurs, a value of 0 should be returned. This unit test checks 
+ * to make sure the handCount for the currentPlayer changes according to the 
+ * requirements.
  *
  * Include the following lines in your makefile:
  *
@@ -18,7 +20,6 @@
 #include <assert.h>
 #include "rngs.h"
 #include "dominion_refactored.h"
-#include "interface.h"
 
 // set NOISY_TEST to 0 to remove printfs from output
 #define NOISY_TEST 1
@@ -53,9 +54,9 @@ int main(){
 #endif
   
   	asserttrue(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards));
-  	
+
 	printf("Unit Test 1 complete...\n");
 
 	return 0;
 }
-//#define assertrue(bool) if(bool) printf("TEST SUCCESSFULLY COMPLETED.\n"); else printf("TEST FAILED: '");
+
