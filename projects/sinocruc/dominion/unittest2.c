@@ -56,7 +56,7 @@ int main(){
     printf("G.discardCount: %d ,testG.discardCount: %d \n", G.discardCount[currentPlayer], testG.discardCount[currentPlayer]);
 #endif
   
-  	asserttrue(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards));
+  	//asserttrue(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards));
 
 	printf("Unit Test 2 complete...\n");
 
