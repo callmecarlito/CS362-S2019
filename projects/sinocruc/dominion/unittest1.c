@@ -53,8 +53,9 @@ int main(){
     printf("After function call:\n G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
 #endif
   
-  	asserttrue(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards));
-
+#if asserttrue(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards));
+#endif
+    
 	printf("Unit Test 1 complete...\n");
 
 	return 0;
