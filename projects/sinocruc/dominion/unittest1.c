@@ -52,6 +52,7 @@ int main(){
 #endif
   
     //assert(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards));
+    
     if (G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards))
         printf("TEST SUCCESSFULL.\n");
     else
