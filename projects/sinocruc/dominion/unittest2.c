@@ -15,14 +15,14 @@
 #include "dominion_helpers.h"
 #include <string.h>
 #include <stdio.h>
-#include <assert.h>
+#include <assert.h>	
 #include "rngs.h"
 #include "dominion_refactored.h"
 
 // set NOISY_TEST to 0 to remove printfs from output
 #define NOISY_TEST 1
 
-#define assertrue(bool) if(bool) printf("TEST SUCCESSFULLY COMPLETED.\n"); else printf("TEST FAILED:' " #bool " ' on line %d.\n", __LINE__);
+//#define assertrue(bool) if(bool) printf("TEST SUCCESSFULLY COMPLETED.\n"); else printf("TEST FAILED:' " #bool " ' on line %d.\n", __LINE__);
 
 int main(){
 
@@ -33,7 +33,8 @@ int main(){
     struct gameState G, testG; 
     int r, s;
     int drawnCards = 3, discardedCards = 1;
-   	int handPos = 0, currentPlayer = 0;
+   	int handPos = 0, currentPlayer = 0, drawntreasure = 0, z = 0;
+   	int cardDrawn;
 
     memset(&G, 23, sizeof(struct gameState));   // clear the game state
     r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
@@ -42,18 +43,22 @@ int main(){
 
 #if (NOISY_TEST == 1)
     printf("Before function call:\n G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
+    printf("G.deckCount: %d ,testG.deckCount: %d \n", G.deckCount[currentPlayer], testG.deckCount[currentPlayer]);
+    printf("G.discardCount: %d ,testG.discardCount: %d \n", G.discardCount[currentPlayer], testG.discardCount[currentPlayer]);
 #endif
-    
-    s = smithy_call(handPos, currentPlayer, &G);
+
+    s = adventurer_call(handPos, currentPlayer, &G, &drawntreasure, &cardDrawn, &z);
     assert(s==0);
     
 #if (NOISY_TEST == 1)
-    printf("After function call:\n G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
+    printf("Before function call:\n G.handCount: %d ,testG.handCount: %d \n", G.handCount[currentPlayer], testG.handCount[currentPlayer]);
+    printf("G.deckCount: %d ,testG.deckCount: %d \n", G.deckCount[currentPlayer], testG.deckCount[currentPlayer]);
+    printf("G.discardCount: %d ,testG.discardCount: %d \n", G.discardCount[currentPlayer], testG.discardCount[currentPlayer]);
 #endif
   
   	asserttrue(G.handCount[currentPlayer] == (testG.handCount[currentPlayer] + drawnCards - discardedCards));
 
-	printf("Unit Test 1 complete...\n");
+	printf("Unit Test 2 complete...\n");
 
 	return 0;
 }
