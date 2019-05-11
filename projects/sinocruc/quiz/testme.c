@@ -26,8 +26,8 @@ char *inputString()
       outputString[i] = charset[letter];
     }
     outputString[strLength] = '\0';
-    printf("random string: %s\n", outputString);
-    return "reset";
+    //printf("random string: %s\n", outputString);
+    return outputString;
 }
 
 void testme()
