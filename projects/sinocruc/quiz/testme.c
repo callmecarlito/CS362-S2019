@@ -19,17 +19,15 @@ char *inputString()
     const char charset[] = "reset";
     int strLength = 5;
     int i, letter;
-    char *outputString = NULL;
+    char outputString[strLength];
 
-    outputString = "reset";
-
-    //for (i = 0; i < strLength; i++){
-    //  letter = rand() %(int)(sizeof charset -1);
-    //  outputString[i] = charset[letter];
-    //}
-    //outputString[strLength] = '\0';
-    printf("from inputString(): %c\n", outputString);
-    return outputString;
+    for (i = 0; i < strLength; i++){
+      letter = rand() %(int)(sizeof charset -1);
+      outputString[i] = charset[letter];
+    }
+    outputString[strLength] = '\0';
+    printf("random string: %s\n", outputString);
+    return "reset";
 }
 
 void testme()
@@ -70,8 +68,5 @@ int main(int argc, char *argv[])
 {
     srand(time(NULL));
     testme();
-    //char *s;
-    //s = inputString();
-    //printf("from main(): %c\n", s);
     return 0;
 }
