@@ -19,14 +19,14 @@ char *inputString()
     const char charset[] = "reset";
     int strLength = 5;
     int i, letter;
-    char *outputString = NULL;
+    char outputString = NULL;
 
     for (i = 0; i < strLength; i++){
       letter = rand() %(int)(sizeof charset -1);
       outputString[i] = charset[letter];
     }
     outputString[strLength] = '\0';
-
+    printf("from inputString(): %c\n", outputString);
     return outputString;
 }
 
