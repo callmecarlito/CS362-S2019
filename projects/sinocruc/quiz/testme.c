@@ -8,7 +8,7 @@ char inputChar()
     int asciiVal;
     char asciiChar;
 
-    asciiVal = (rand() % 127 + 32);
+    asciiVal = (rand() % 127 + 32); 
     asciiChar = asciiVal;
 
     return asciiChar;
