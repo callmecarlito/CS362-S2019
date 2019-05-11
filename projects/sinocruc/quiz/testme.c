@@ -19,7 +19,7 @@ char *inputString()
     const char charset[] = "reset";
     int strLength = 5;
     int i, letter;
-    char *outputString;
+    char *outputString = NULL;
 
     for (i = 0; i < strLength; i++){
       letter = rand() %(int)(sizeof charset -1);
