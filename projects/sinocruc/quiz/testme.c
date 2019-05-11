@@ -16,8 +16,18 @@ char inputChar()
 
 char *inputString()
 {
-    // TODO: rewrite this function
-    return "reset";
+    const char charset[] = "reset";
+    int strLength = 5;
+    int i, letter;
+    char *outputString;
+
+    for (i = 0; i < strLength; i++){
+      letter = rand() %(int)(sizeof charset -1);
+      outputString[i] = charset[letter];
+    }
+    outputString[strLength] = '\0';
+
+    return outputString;
 }
 
 void testme()
