@@ -39,10 +39,10 @@ int main(){
       	((char*)&G)[i] = floor(Random() * 256);
     	}
     	p = floor(Random() * 2);
+      handPosition = rand() % floor(Random() * MAX_HAND);
       G.handCount[p] = floor(Random() * MAX_HAND);
     	G.deckCount[p] = floor(Random() * MAX_DECK);
-    	G.discardCount[p] = floor(Random() * MAX_DECK);
-    	
+    	G.discardCount[p] = floor(Random() * MAX_DECK);	
     	checkSmithyCard(handPosition, p, &G);
   	}
 
