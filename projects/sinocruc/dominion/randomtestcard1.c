@@ -14,24 +14,20 @@ int checkSmithyCard(int handPos, int player, struct gameState *testG) {
   int r;
 
   r = smithy_call(handPos, player, testG);
-  
+
   assert (r == 0);
 }
 
 int main(){
 
-  	int i, n, r, p, deckCount, discardCount, handCount;
-
-  	int cardDrawn;
-
-  	int z;
+  	int i, n, p, handPosition;
 
   	int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       	remodel, smithy, village, baron, great_hall};
 
   	struct gameState G;
 
-  	printf ("Testing drawCard.\n");
+  	printf ("Testing smithy_call.\n");
 
   	printf ("RANDOM TESTS.\n");
 
@@ -43,10 +39,11 @@ int main(){
       	((char*)&G)[i] = floor(Random() * 256);
     	}
     	p = floor(Random() * 2);
+      G.handCount[p] = floor(Random() * MAX_HAND);
     	G.deckCount[p] = floor(Random() * MAX_DECK);
     	G.discardCount[p] = floor(Random() * MAX_DECK);
-    	G.handCount[p] = floor(Random() * MAX_HAND);
-    	checkDrawCard(p, &G);
+    	
+    	checkSmithyCard(handPosition, p, &G);
   	}
 
   	printf ("ALL TESTS OK\n");
