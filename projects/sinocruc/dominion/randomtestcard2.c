@@ -43,7 +43,7 @@ int main(){
       G.handCount[p] = floor(Random() * MAX_HAND);
     	G.deckCount[p] = floor(Random() * MAX_DECK);
     	G.discardCount[p] = floor(Random() * MAX_DECK);	
-    	checkSmithyCard(handPosition, p, &G);
+    	checkVillageCard(handPosition, p, &G);
   	}
 
   	printf ("ALL TESTS OK\n");
