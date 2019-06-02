@@ -30,7 +30,7 @@ smithyTest: smithyTest.c dominion.o rngs.o
 adventurerTest: adventurerTest.c dominion.o rngs.o
 	gcc -o adventurerTest -g  adventurerTest.c dominion.o rngs.o $(CFLAGS)
 
-runtests: testDrawCard 
+runtests: smithyTest adventurerTest 
 	./smithyTest &> testresult.out
 	gcov dominion.c >> testresult.out
 	cat dominion.c.gcov >> testresult.out
