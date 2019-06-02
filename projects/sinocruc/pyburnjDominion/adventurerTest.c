@@ -17,12 +17,12 @@ int main(){
                , remodel, smithy, village, baron, great_hall};
     struct gameState G; 
     int r, n, i, s;
-    int handPos = 0, currentPlayer = 0, drawnTreasure = 0, cardDrawn = 0, z = 0;
+    int handPos = 0, currentPlayer = 0, temp_drawnTreasure = 0, temp_cardDrawn, temp_z = 0;
 
   	for (n = 0; n < 2000; n++) {
       memset(&G, 23, sizeof(struct gameState));   // clear the game state
       r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
-      assert(r==0);
+      assert(r == 0);
     	//for (i = 0; i < sizeof(struct gameState); i++) {
       //	((char*)&G)[i] = floor(Random() * 256);
     	//}
@@ -31,27 +31,27 @@ int main(){
     	G.handCount[currentPlayer] = floor(Random() * MAX_HAND);
 
 #if (NOISY_TEST == 1)
-    printf("Before function call:\n G.deckCount: %d \n", G.deckCount[currentPlayer]);
+    printf("Before function call:\nG.deckCount: %d \n", G.deckCount[currentPlayer]);
     printf("G.discardCount: %d \n", G.discardCount[currentPlayer]);
     printf("G.handCount: %d \n", G.handCount[currentPlayer]);
-    printf("drawnTreasure: %d \n", drawnTreasure);
-    printf("cardDrawn: %d \n", cardDrawn);
+    printf("temp_drawnTreasure: %d \n", temp_drawnTreasure);
+    printf("temp_cardDrawn: %d \n", temp_cardDrawn);
 #endif
 
-    	s = adventurer_call(handPos, currentPlayer, &G, &drawnTreasure, &cardDrawn, &z);
+    	s = adventurer_call(handPos, currentPlayer, &G, &temp_drawnTreasure, &temp_cardDrawn, &temp_z);
       assert (s == 0);
 
 #if (NOISY_TEST == 1)
-    printf("After function call:\n G.deckCount: %d \n", G.deckCount[currentPlayer]);
+    printf("After function call:\nG.deckCount: %d \n", G.deckCount[currentPlayer]);
     printf("G.discardCount: %d \n", G.discardCount[currentPlayer]);
     printf("G.handCount: %d \n", G.handCount[currentPlayer]);
-    printf("drawnTreasure: %d \n", drawnTreasure);
-    printf("cardDrawn: %d \n", cardDrawn);
+    printf("temp_drawnTreasure: %d \n", temp_drawnTreasure);
+    printf("temp_cardDrawn: %d \n", temp_cardDrawn);
 #endif
 
-    drawnTreasure = 0;
-    cardDrawn = 0;
-    z = 0;
+    temp_drawnTreasure = 0;
+    temp_cardDrawn = 0;
+    temp_z = 0;
   	}
 
   	exit(0);
