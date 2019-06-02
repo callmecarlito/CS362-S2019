@@ -8,8 +8,8 @@
  *
  * Include the following lines in your makefile:
  *
- * unittest1: unittest1.c dominion.o rngs.o
- *      gcc -o unittest1 -g  unittest1.c dominion.o rngs.o $(CFLAGS)
+ * smithyTest: smithyTest.c dominion.o rngs.o
+ *      gcc -o smithyTest -g  smithyTest.c dominion.o rngs.o $(CFLAGS)
  * -----------------------------------------------------------------------
  */
 
@@ -61,5 +61,6 @@ int main(){
 
 	return 0;
 }
+
 //#define assertrue(bool) if(bool) printf("TEST SUCCESSFULLY COMPLETED.\n"); else printf("TEST FAILED:' " #bool " ' on line %d.\n", __LINE__);
 
