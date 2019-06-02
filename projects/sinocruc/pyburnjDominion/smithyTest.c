@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "rngs.h"
-#include "dominion_refactored.h"
+//include "dominion_refactored.h"
 
 // set NOISY_TEST to 0 to remove printfs from output
 #define NOISY_TEST 0

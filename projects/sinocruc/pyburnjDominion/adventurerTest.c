@@ -4,7 +4,7 @@ include "dominion.h"
 #include <stdio.h>
 #include <assert.h>
 #include "rngs.h"
-#include "dominion_refactored.h"
+//#include "dominion_refactored.h"
 
 #define DEBUG 0
 #define NOISY_TEST 1
