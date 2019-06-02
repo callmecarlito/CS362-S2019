@@ -1,4 +1,4 @@
-include "dominion.h"
+#include "dominion.h"
 #include "dominion_helpers.h"
 #include <string.h>
 #include <stdio.h>
@@ -7,7 +7,7 @@ include "dominion.h"
 //#include "dominion_refactored.h"
 
 // set NOISY_TEST to 0 to remove printfs from output
-#define NOISY_TEST 0
+#define NOISY_TEST 1
 
 int main(){
 
@@ -26,6 +26,7 @@ int main(){
     	G.deckCount[currentPlayer] = floor(Random() * MAX_DECK);
     	G.discardCount[currentPlayer] = floor(Random() * MAX_DECK);
     	G.handCount[currentPlayer] = floor(Random() * MAX_HAND);
+
 #if (NOISY_TEST == 1)
     printf("Before function call:\n G.deckCount: %d \n", G.deckCount[currentPlayer]);
     printf("G.discardCount: %d \n", G.discardCount[currentPlayer]);
@@ -33,8 +34,10 @@ int main(){
     printf("drawnTreasure: %d \n", drawnTreasure);
     printf("cardDrawn: %d \n", cardDrawn);
 #endif
+
     	s = adventurer_call(handPos, currentPlayer, &G, &drawnTreasure, &cardDrawn, &z);
       assert (s == 0);
+
 #if (NOISY_TEST == 1)
     printf("After function call:\n G.deckCount: %d \n", G.deckCount[currentPlayer]);
     printf("G.discardCount: %d \n", G.discardCount[currentPlayer]);
@@ -42,6 +45,7 @@ int main(){
     printf("drawnTreasure: %d \n", drawnTreasure);
     printf("cardDrawn: %d \n", cardDrawn);
 #endif
+
     drawnTreasure = 0;
     cardDrawn = 0;
     z = 0;
