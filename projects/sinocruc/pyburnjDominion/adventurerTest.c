@@ -16,7 +16,7 @@ int main(){
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
     struct gameState G; 
-    int n, i, s;
+    int r, n, i, s;
     int handPos = 0, currentPlayer = 0, drawnTreasure = 0, cardDrawn = 0, z = 0;
 
   	for (n = 0; n < 2000; n++) {
