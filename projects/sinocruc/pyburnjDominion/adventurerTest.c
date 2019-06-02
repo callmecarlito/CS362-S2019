@@ -20,9 +20,12 @@ int main(){
     int handPos = 0, currentPlayer = 0, drawnTreasure = 0, cardDrawn = 0, z = 0;
 
   	for (n = 0; n < 2000; n++) {
-    	for (i = 0; i < sizeof(struct gameState); i++) {
-      	((char*)&G)[i] = floor(Random() * 256);
-    	}
+      memset(&G, 23, sizeof(struct gameState));   // clear the game state
+      r = initializeGame(numPlayer, k, seed, &G); // initialize a new game
+      assert(r==0);
+    	//for (i = 0; i < sizeof(struct gameState); i++) {
+      //	((char*)&G)[i] = floor(Random() * 256);
+    	//}
     	G.deckCount[currentPlayer] = floor(Random() * MAX_DECK);
     	G.discardCount[currentPlayer] = floor(Random() * MAX_DECK);
     	G.handCount[currentPlayer] = floor(Random() * MAX_HAND);
