@@ -6,49 +6,46 @@ include "dominion.h"
 #include "rngs.h"
 //#include "dominion_refactored.h"
 
-#define DEBUG 0
-#define NOISY_TEST 1
-
-int checkAdventurerCard(int p, struct gameState *post) {
- 
-
-  assert (r == 0);
-}
+// set NOISY_TEST to 0 to remove printfs from output
+#define NOISY_TEST 0
 
 int main(){
 
-  	int i, n, r, p, deckCount, discardCount, handCount;
-
-  	int drawnTreasure = 0;
-
-  	int cardDrawn;
-
-  	int z;
-
-  	int k[10] = {adventurer, council_room, feast, gardens, mine,
-	       	remodel, smithy, village, baron, great_hall};
-
-  	struct gameState G;
-
-  	printf ("Testing drawCard.\n");
-
-  	printf ("RANDOM TESTS.\n");
-
-  	SelectStream(2);
-  	PutSeed(3);
+  	int seed = 1000;
+    int numPlayer = 2;
+    int k[10] = {adventurer, council_room, feast, gardens, mine
+               , remodel, smithy, village, baron, great_hall};
+    struct gameState G; 
+    int n, i, s;
+    int handPos = 0, currentPlayer = 0, drawnTreasure = 0, cardDrawn = 0, z = 0;
 
   	for (n = 0; n < 2000; n++) {
     	for (i = 0; i < sizeof(struct gameState); i++) {
       	((char*)&G)[i] = floor(Random() * 256);
     	}
-    	p = floor(Random() * 2);
-    	G.deckCount[p] = floor(Random() * MAX_DECK);
-    	G.discardCount[p] = floor(Random() * MAX_DECK);
-    	G.handCount[p] = floor(Random() * MAX_HAND);
-    	checkDrawCard(p, &G);
+    	G.deckCount[currentPlayer] = floor(Random() * MAX_DECK);
+    	G.discardCount[currentPlayer] = floor(Random() * MAX_DECK);
+    	G.handCount[currentPlayer] = floor(Random() * MAX_HAND);
+#if (NOISY_TEST == 1)
+    printf("Before function call:\n G.deckCount: %d \n", G.deckCount[currentPlayer]);
+    printf("G.discardCount: %d \n", G.discardCount[currentPlayer]);
+    printf("G.handCount: %d \n", G.handCount[currentPlayer]);
+    printf("drawnTreasure: %d \n", drawnTreasure);
+    printf("cardDrawn: %d \n", cardDrawn);
+#endif
+    	s = adventurer_call(handPos, currentPlayer, &G, &drawnTreasure, &cardDrawn, &z);
+      assert (s == 0);
+#if (NOISY_TEST == 1)
+    printf("After function call:\n G.deckCount: %d \n", G.deckCount[currentPlayer]);
+    printf("G.discardCount: %d \n", G.discardCount[currentPlayer]);
+    printf("G.handCount: %d \n", G.handCount[currentPlayer]);
+    printf("drawnTreasure: %d \n", drawnTreasure);
+    printf("cardDrawn: %d \n", cardDrawn);
+#endif
+    drawnTreasure = 0;
+    cardDrawn = 0;
+    z = 0;
   	}
-
-  	printf ("ALL TESTS OK\n");
 
   	exit(0);
 

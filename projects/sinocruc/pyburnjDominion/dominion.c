@@ -1265,7 +1265,7 @@ int adventurer_call(int handPos, int currentPlayer, struct gameState *state, int
   
   while(*drawntreasure<2){
   //if the deck is empty we need to shuffle discard and add to deck
-  if (state->deckCount[currentPlayer] >1){ //introduced error here, switched < to > in the conditional
+  if (state->deckCount[currentPlayer] <1){ //introduced error here, switched < to > in the conditional
     shuffle(currentPlayer, state);
     }
   drawCard(currentPlayer, state);
