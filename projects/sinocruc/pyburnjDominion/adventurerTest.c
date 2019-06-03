@@ -38,8 +38,8 @@ int main(){
     printf("temp_cardDrawn: %d \n", temp_cardDrawn);
 #endif
 
-    	s = adventurer_call(handPos, currentPlayer, &G, &temp_drawnTreasure, &temp_cardDrawn, &temp_z);
-      assert (s == 0);
+      //s = adventurer_call(handPos, currentPlayer, &G, &temp_drawnTreasure, &temp_cardDrawn, &temp_z);
+      //assert (s == 0);
 
 #if (NOISY_TEST == 1)
     printf("After function call:\nG.deckCount: %d \n", G.deckCount[currentPlayer]);
