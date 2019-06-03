@@ -38,7 +38,7 @@ int main(){
     printf("temp_cardDrawn: %d \n", temp_cardDrawn);
 #endif
 
-      //s = adventurer_call(handPos, currentPlayer, &G, &temp_drawnTreasure, &temp_cardDrawn, &temp_z);
+      s = adventurer_call(handPos, currentPlayer, &G, &temp_drawnTreasure, &temp_cardDrawn, &temp_z);
       //assert (s == 0);
 
 #if (NOISY_TEST == 1)
